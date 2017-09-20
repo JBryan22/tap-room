@@ -1,10 +1,16 @@
-import { NgModule }      from '@angular/core';
+import { NgModule }  from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
+import { KegListComponent } from './keg-list.component';
+import { EditKegComponent } from './edit-keg.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ AppComponent ],
+  imports: [ BrowserModule, FormsModule ],
+  declarations: [ AppComponent,
+                  KegListComponent,
+                  EditKegComponent
+                 ],
   bootstrap:    [ AppComponent ]
 })
 

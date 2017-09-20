@@ -1,5 +1,5 @@
 {
-  "name": "name-of-project",
+  "name": "tap-roomgu",
   "description": "",
   "main": "",
   "license": "MIT",
@@ -12,6 +12,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "v4.0.0-alpha.6"
   }
 }
