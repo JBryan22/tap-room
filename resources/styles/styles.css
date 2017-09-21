@@ -16,11 +16,12 @@ h1 {
   color: rgb(80,80,80);
 }
 
-.card button {
-  opacity: 0.7;
+.add-button {
+  color: white;
   border: none;
   background:none !important;
   outline: inherit !important;
+
 }
 
 .card button:hover {
@@ -36,16 +37,35 @@ h1 {
   position:absolute;
   left: 10px;
   top: 10px;
+  opacity: 0.7;
+  border: none;
+  background:none !important;
+  outline: inherit !important;
+}
+
+.back-button {
+  position:absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0.7;
+  border: none;
+  background:none !important;
+  outline: inherit !important;
+
 }
 
 .details-button {
   position: absolute;
   right: 10px;
   top:10px;
+  opacity: 0.7;
+  border: none;
+  background:none !important;
+  outline: inherit !important;
 }
 
 .keg-level {
-  margin-left: 10%;
+  margin-left: 7%;
 }
 
 .details {
@@ -56,4 +76,32 @@ h1 {
   position:absolute;
   right: 10px;
   top: 10px;
+}
+
+.filters {
+  text-align: center;
+}
+
+.badge-success {
+  background-color: #19a66d!important;
+  border-radius: 0.115rem!important;
+  font-weight: lighter!important;
+}
+
+.badge-default {
+
+  border-radius: 0.115rem!important;
+  font-weight: lighter!important;
+}
+
+.add-form h1{
+  color: white!important;
+}
+.add-form label{
+  font-size: 12pt;
+}
+.add-form input{
+  font-size: 14px;
+  width: 50%;
+       clear: both;
 }

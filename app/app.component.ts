@@ -11,16 +11,20 @@ import { Keg } from './keg.model';
     <div class="row">
     <div class="col-md-6">
 
-    <div class="card pa2 grow f3-ns no-underline bg-dark-green white-90">
-    <button class="tc"(click)="addNewButton()"><i class="fa fa-plus tc fa-lg "></i></button>
+    <div class="card pa2 grow f3-ns no-underline bg-dark-green white-90 add-form">
+    <button class="add-button tc"(click)="addNewButton()"><i class="fa fa-plus tc fa-lg "></i></button>
     </div>
+
+    <new-keg [addNewButtonInput]="addNewButtonClicked" (newKegSender)="addKeg($event)"></new-keg>
+
+    <edit-keg [childSelectedKeg]="selectedKeg" (doneButtonClickSender)="finishedEditing()"></edit-keg>
+
     <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)" (detailsClickSender)="detailsKeg($event)"></keg-list>
     </div>
-    <div class="col-md-6 ba pt4 details">
-    <keg-details [kegDetailsSelectedKeg]="selectedDetailsKeg"></keg-details>
+    <div class="col-md-6 details">
+    <keg-details [kegDetailsSelectedKeg]="selectedDetailsKeg" (backKegSender)="finishedDetailing()"></keg-details>
     </div>
-    <edit-keg [childSelectedKeg]="selectedKeg" (doneButtonClickSender)="finishedEditing()"></edit-keg>
-    <new-keg [addNewButtonInput]="addNewButtonClicked" (newKegSender)="addKeg($event)"></new-keg>
+
   </div>
   `
 })
@@ -35,7 +39,10 @@ export class AppComponent {
     new Keg('Fremont Summer Ale', 'Fremont Brewing Company', 6, 5.2),
     new Keg('Moon Tower Stout', 'Hellbent Brewing Company', 5, 6.4),
     new Keg('Hop Session', 'Dru Bru', 6, 4.7),
-    new Keg('Fremont Summer Ale', 'Fremont Brewing Company', 7, 8.2),
+    new Keg('Fremont Winter Ale', 'Fremont Brewing Company', 7, 8.2),
+    new Keg('Rainier', 'Pabst Brewing Company', 2.5, 4.7),
+    new Keg('Rolling Rock', 'Anheuser–Busch', 3, 4.5),
+    new Keg('Pabst Blue Ribbon', 'Pabst Brewing Company', 2.5, 4.7),
     new Keg('Dark Bru', 'Dru Bru', 5, 6.7)
   ];
 
@@ -60,6 +67,10 @@ export class AppComponent {
 
   detailsKeg(clickedKeg) {
     this.selectedDetailsKeg = clickedKeg;
+  }
+
+  finishedDetailing() {
+    this.selectedDetailsKeg = null;
   }
 
 }

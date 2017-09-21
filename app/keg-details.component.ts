@@ -6,10 +6,12 @@ import { Keg } from './keg.model';
 @Component({
   selector: 'keg-details',
   template: `
-  <div *ngIf="kegDetailsSelectedKeg">
+  <div class="pt4 fixed card" *ngIf="kegDetailsSelectedKeg">
+    <div class="card-block">
     <div class="row">
       <div class="keg-level">
-        <button class="btn ma2 fr back-button" (click)="backButton()">x</button>
+        <button class="ma2 fr back-button" (click)="backButton()"><i class="fa fa-times" aria-hidden="true"></i>
+</button>
         <h4 class="tc">{{kegDetailsSelectedKeg.name}}</h4>
         <h5 class="tc"> Remaining Pints: {{kegDetailsSelectedKeg.numberOfPints}}</h5>
         <img src={{kegDetailsSelectedKeg.imageUrl}}>
@@ -19,16 +21,17 @@ import { Keg } from './keg.model';
     <div class="row">
     <div class="col-md-6 tc">
       <div *ngIf="kegDetailsSelectedKeg.numberOfPints > 0">
-        <button class="btn btn-info ma2"(click)="sellPint()">Sell Pint</button>
+        <button class="btn btn-default ma2"(click)="sellPint()">Sell Pint</button>
       </div>
       <div *ngIf="kegDetailsSelectedKeg.numberOfPints > 4">
-        <button class="btn btn-info ma2" (click)="sellGrowler()">Sell Growler</button>
+        <button class="btn btn-default ma2" (click)="sellGrowler()">Sell Growler</button>
         </div>
       </div>
       <div class="col-md-6 tc">
-      <button class="btn btn-info ma2" (click)="sellKeg()">Sell Keg</button>
-      <button class="btn btn-info ma2" (click)="replaceKeg()">Order Replacement</button>
+      <button class="btn btn-default ma2" (click)="sellKeg()">Sell Keg</button>
+      <button class="btn btn-default ma2" (click)="replaceKeg()">Order Replacement</button>
       </div>
+  </div>
   </div>
   </div>
   `
@@ -38,6 +41,7 @@ export class KegDetailsComponent {
 
   @Input() kegDetailsSelectedKeg: Keg;
   @Output() moneyKegSender = new EventEmitter();
+  @Output() backKegSender = new EventEmitter();
 
   imageNumber: number;
 
@@ -61,7 +65,7 @@ export class KegDetailsComponent {
   }
 
   backButton() {
-    //
+    this.kegDetailsSelectedKeg = null;
   }
 
 
