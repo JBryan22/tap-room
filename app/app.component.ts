@@ -11,7 +11,7 @@ import { Keg } from './keg.model';
     <div class="row">
     <div class="col-md-6">
 
-    <div class="card pa2 grow f3-ns no-underline bg-dark-green white-90 add-form">
+    <div class="card pa2 grow f3-ns no-underline bg-dark-green white-90">
     <button class="add-button tc"(click)="addNewButton()"><i class="fa fa-plus tc fa-lg "></i></button>
     </div>
 
@@ -19,7 +19,7 @@ import { Keg } from './keg.model';
 
     <edit-keg [childSelectedKeg]="selectedKeg" (doneButtonClickSender)="finishedEditing()"></edit-keg>
 
-    <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)" (detailsClickSender)="detailsKeg($event)"></keg-list>
+    <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)" (detailsClickSender)="detailsKeg($event)" (deleteClickSender)="deleteKeg($event)"></keg-list>
     </div>
     <div class="col-md-6 details">
     <keg-details [kegDetailsSelectedKeg]="selectedDetailsKeg" (backKegSender)="finishedDetailing()"></keg-details>
@@ -71,6 +71,11 @@ export class AppComponent {
 
   finishedDetailing() {
     this.selectedDetailsKeg = null;
+  }
+
+  deleteKeg(selectedKeg) {
+    let itemToDelete = this.masterKegList.findIndex(function (keg) {return selectedKeg.name === keg.name});
+    this.masterKegList.splice(itemToDelete, 1);
   }
 
 }

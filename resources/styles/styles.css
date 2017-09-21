@@ -54,10 +54,21 @@ h1 {
 
 }
 
+.delete-button {
+  position:absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0.7;
+  border: none;
+  background:none !important;
+  outline: inherit !important;
+
+}
+
 .details-button {
   position: absolute;
-  right: 10px;
-  top:10px;
+  left: 10px;
+  bottom:10px;
   opacity: 0.7;
   border: none;
   background:none !important;
@@ -104,4 +115,30 @@ h1 {
   font-size: 14px;
   width: 50%;
        clear: both;
+}
+
+.edit-form h1{
+  color: white!important;
+}
+.edit-form label{
+  font-size: 12pt;
+}
+.edit-form input{
+  font-size: 14px;
+  width: 50%;
+  clear: both;
+}
+
+.edit-card-input input {
+  width: 100%;
+  clear: both;
+  text-align: center;
+  font-size: 14px;
+}
+.edit-card-input label {
+  font-size: 12pt;
+  margin-top: 1%;
+  font-weight: bold;
+
+
 }

@@ -5,10 +5,12 @@ import { Keg } from './keg.model';
   selector: 'edit-keg',
   template: `
     <div *ngIf="childSelectedKeg">
-      <h3>Edit {{childSelectedKeg.name}}</h3>
+    <div class="card">
+      <div class="card-form pa3 edit-card-input">
+      <h1>Edit {{childSelectedKeg.name}}</h1>
       <label>Enter Keg Name:</label>
       <input [(ngModel)]="childSelectedKeg.name">
-      
+
       <label>Enter Keg Brand:</label>
       <input [(ngModel)]="childSelectedKeg.brand">
 
@@ -19,10 +21,12 @@ import { Keg } from './keg.model';
       <input [(ngModel)]="childSelectedKeg.abv">
 
       <p>Number of pints left: {{childSelectedKeg.numberOfPints}}</p>
-      <button (click)="doneButtonClicked()">Done</button>
+      <button class="btn btn-default"  (click)="doneButtonClicked()">Done</button>
       <div *ngIf="childSelectedKeg.numberOfPints < 1">
         <button (click)="replaceKegClicked()">Replace Kicked Keg</button>
       </div>
+      </div>
+    </div>
     </div>
   `
 })
